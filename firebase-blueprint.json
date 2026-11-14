@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "Alert": {
+      "title": "Monitoring Alert",
+      "description": "Monitored anti-Islamic content detected across the web.",
+      "type": "object",
+      "properties": {
+        "source": { "type": "string", "description": "Name of the source or platform." },
+        "content": { "type": "string", "description": "Summary or full text of the detected content." },
+        "level": { "type": "string", "description": "Threat level: High, Medium, Low.", "enum": ["High", "Medium", "Low"] },
+        "time": { "type": "string", "description": "Timestamp of detection." },
+        "evidence": { "type": "string", "description": "URL link to the original content." },
+        "category": { "type": "string", "description": "Type of content (e.g., Article, App, Social Media)." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server-side timestamp." }
+      },
+      "required": ["source", "content", "level", "createdAt"]
+    },
+    "Rebuttal": {
+      "title": "Scientific Rebuttal",
+      "description": "Generated scientific rebuttals for specific alerts.",
+      "type": "object",
+      "properties": {
+        "alertId": { "type": "string", "description": "Reference to the original alert ID." },
+        "text": { "type": "string", "description": "The full markdown rebuttal text." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server-side timestamp." }
+      },
+      "required": ["alertId", "text", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/alerts/{alertId}": {
+      "schema": "Alert",
+      "description": "Collection of detected alerts."
+    },
+    "/rebuttals/{rebuttalId}": {
+      "schema": "Rebuttal",
+      "description": "Collection of scientific rebuttals."
+    }
+  }
+}

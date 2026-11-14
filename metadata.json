@@ -1,0 +1,8 @@
+{
+  "name": " درع الأمة — منصة الدفاع عن الإسلام 1.0",
+  "description": "منصة متكاملة للتصدي للهجوم على الإسلام بمنهجية علمية، إعلامية، وقانونية.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
